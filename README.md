@@ -10,7 +10,7 @@ Sistema embarcado em ESP32 para monitoramento de temperatura,
 luminosidade e vibração de uma cápsula espacial simulada no Wokwi.
 
 ## Simulação
-🔗 [Projeto no Wokwi](LINK_AQUI)
+https://wokwi.com/projects/466303032438351873
 
 ## Arquivos
 - `capsula_espacial.ino` – Código principal
