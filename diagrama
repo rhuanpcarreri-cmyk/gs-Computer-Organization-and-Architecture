@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "author": "FIAP GS 2026.1 – Edge Computing",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 180,
+      "left": 200,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 20,
+      "left": 40,
+      "attrs": { "humidity": "55", "temperature": "24" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 20,
+      "left": 260,
+      "attrs": { "lux": "500" }
+    },
+    {
+      "type": "wokwi-vibration-sensor",
+      "id": "vibr1",
+      "top": 20,
+      "left": 460,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 420,
+      "left": 80,
+      "attrs": { "pins": "i2c", "address": "0x27" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledG",
+      "top": 330,
+      "left": 560,
+      "attrs": { "color": "green", "label": "NORMAL" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledY",
+      "top": 370,
+      "left": 560,
+      "attrs": { "color": "yellow", "label": "ATENCAO" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledR",
+      "top": 410,
+      "left": 560,
+      "attrs": { "color": "red", "label": "CRITICO" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buz1",
+      "top": 450,
+      "left": 560,
+      "attrs": { "volume": "0.5" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 330,
+      "left": 510,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 370,
+      "left": 510,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 410,
+      "left": 510,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    ["esp:3V3", "dht1:VCC", "red", []],
+    ["esp:GND.1", "dht1:GND", "black", []],
+    ["esp:D4", "dht1:SDA", "green", []],
+
+    ["esp:3V3", "ldr1:VCC", "red", []],
+    ["esp:GND.2", "ldr1:GND", "black", []],
+    ["esp:D34", "ldr1:DO", "orange", []],
+
+    ["esp:3V3", "vibr1:VCC", "red", []],
+    ["esp:GND.3", "vibr1:GND", "black", []],
+    ["esp:D35", "vibr1:DO", "purple", []],
+
+    ["esp:D21", "lcd1:SDA", "blue", []],
+    ["esp:D22", "lcd1:SCL", "yellow", []],
+    ["esp:3V3", "lcd1:VCC", "red", []],
+    ["esp:GND.4", "lcd1:GND", "black", []],
+
+    ["esp:D25", "r1:1", "green", []],
+    ["r1:2", "ledG:A", "green", []],
+    ["ledG:C", "esp:GND.5", "black", []],
+
+    ["esp:D26", "r2:1", "yellow", []],
+    ["r2:2", "ledY:A", "yellow", []],
+    ["ledY:C", "esp:GND.6", "black", []],
+
+    ["esp:D27", "r3:1", "red", []],
+    ["r3:2", "ledR:A", "red", []],
+    ["ledR:C", "esp:GND.7", "black", []],
+
+    ["esp:D32", "buz1:1", "orange", []],
+    ["buz1:2", "esp:GND.8", "black", []]
+  ]
+}
